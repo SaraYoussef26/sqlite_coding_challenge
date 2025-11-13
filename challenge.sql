@@ -23,3 +23,19 @@ JOIN orders o
     ON oi.order_id = o.id
 GROUP BY p.category
 ORDER BY total_revenue DESC;
+
+-- TASK 3
+SELECT
+    e.first_name,
+    e.last_name,
+    d.name AS department_name,
+    e.salary AS employee_salary,
+    ROUND(AVG(e2.salary), 2) AS department_avg
+FROM employees e
+JOIN departments d
+    ON e.department_id = d.id
+JOIN employees e2
+    ON e.department_id = e2.department_id
+GROUP BY e.id
+HAVING e.salary > AVG(e2.salary)
+ORDER BY department_name, employee_salary DESC;

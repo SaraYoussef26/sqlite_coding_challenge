@@ -39,3 +39,14 @@ JOIN employees e2
 GROUP BY e.id
 HAVING e.salary > AVG(e2.salary)
 ORDER BY department_name, employee_salary DESC;
+
+
+-- TASK 4
+SELECT 
+    city,
+    COUNT(CASE WHEN loyalty_level = 'Gold' THEN 1 END) AS gold_customers,
+    COUNT(CASE WHEN loyalty_level = 'Silver' THEN 1 END) AS silver_customers,
+    COUNT(CASE WHEN loyalty_level = 'Bronze' THEN 1 END) AS bronze_customers
+FROM customers
+GROUP BY city
+ORDER BY gold_customers DESC, city ASC;

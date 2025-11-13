@@ -1,3 +1,5 @@
+--TOOlS I USED: SQLTools(SQLite).
+--Validate results: Tasks were tested by running each in SQLTools to make sure reults make sense.  
 
 -- TASK 1
 SELECT 
